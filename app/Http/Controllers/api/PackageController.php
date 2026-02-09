@@ -31,23 +31,23 @@ class PackageController extends Controller {
         return $this->sendResponse( $package, "Sikeres írás" );
     }
 
-    public function update( PackageRequest $request, $id ) {
+    public function update( PackageRequest $request, Package $package ) {
 
         $request->validated();
 
-        $package = Package::find( $id );
-        if( is_null( $package )) {
+        //$package = Package::find( $id );
+        // if( is_null( $package )) {
 
-            return $this->sendError( "Nem végrehajtható", "Nincs ilyen rekord", 405 );
+        //     return $this->sendError( "Nem végrehajtható", "Nincs ilyen rekord", 405 );
 
-        }else {
+        // }else {
 
             $package->package = $request[ "package" ];
 
-            $package->update();
+            //$package->update();
 
             return $this->sendResponse( $package, "Sikeres módosítás" );
-        }
+        //}
     }
 
     public function destroy( $id ) {

@@ -127,6 +127,21 @@ return [
             'path' => storage_path('logs/laravel.log'),
         ],
 
+        "invalid_model" => [
+            "driver" => "daily",
+            "name" => "INVALID_MODEL",
+            "path" => storage_path( "logs/invalid-model.log" ),
+            "level" => "warning",
+            "days" => 7,
+            "formatter" => Monolog\Formatter\LineFormatter::class,
+            "formatter_with" => [
+                "format" => "[%datetime%] %channel%.%level_name%\n%message% %context% %extra%\n",
+                "dateFormat" => "Y-m-d H:i:s",
+                "allowInlineLineBreaks" => true,
+                "ignoreEmptyContextAndExtra" => true,
+            ],
+        ],
+
     ],
 
 ];
