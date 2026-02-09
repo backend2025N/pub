@@ -9,17 +9,14 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class InvalidModelMail extends Mailable
-{
+class InvalidModelMail extends Mailable {
+
     use Queueable, SerializesModels;
 
     /**
      * Create a new message instance.
      */
-    public function __construct()
-    {
-        //
-    }
+    public function __construct( public array $logData ) {}
 
     /**
      * Get the message envelope.
@@ -27,7 +24,7 @@ class InvalidModelMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Invalid Model Mail',
+            subject: 'Érvénytelen modell',
         );
     }
 
@@ -37,7 +34,7 @@ class InvalidModelMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'emails.missModel',
         );
     }
 
