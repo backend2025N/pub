@@ -10,6 +10,8 @@ use App\Http\Controllers\api\TypeController;
 use App\Http\Controllers\api\UserController;
 use App\Http\Controllers\api\AdminController;
 use App\Http\Controllers\api\ProfileController;
+use App\Http\Controllers\api\ReserveController;
+use App\Models\User;
 
 //User
 Route::post( "/register", [ UserController::class, "register" ]);
@@ -57,5 +59,22 @@ Route::middleware([ "auth:sanctum" ])->group( function() {
             });
     });
 });
+
+Route::get( "/verify_email/{id}/{hash}", function( Request $request, $id, $hash ){
+
+    $user = User::findOrFail( $request->id );
+
+    if( $user->hasVerifiedEmail() ) {
+
+        return response()->json([ "message" => "Ez az email már meg van erősítve." ]);
+
+    }
+
+    $user->markEmailAsVerified();
+
+    return response()->json([ "message" => "Sikeres megerősítés" ]);
+})->name( "verification.verify" )->middleware( "signed" );
+
+Route::post( "/reserve", [ ReserveController::class, "reserveTable" ]);
 
 
