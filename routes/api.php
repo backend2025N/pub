@@ -19,6 +19,11 @@ Route::post( "/login", [ UserController::class, "login" ]);
 
 Route::middleware([ "auth:sanctum" ])->group( function() {
     
+    //Route::post( "/reserve", [ ReserveController::class, "reserveTable" ]);
+    Route::post( "/reserve", function( Request $request ){
+        return auth()->user();
+    });
+
     //User
     Route::post( "/logout", [ UserController::class, "logout" ]);
 
@@ -75,6 +80,6 @@ Route::get( "/verify_email/{id}/{hash}", function( Request $request, $id, $hash 
     return response()->json([ "message" => "Sikeres megerősítés" ]);
 })->name( "verification.verify" )->middleware( "signed" );
 
-Route::post( "/reserve", [ ReserveController::class, "reserveTable" ]);
+
 
 

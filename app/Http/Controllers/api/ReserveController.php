@@ -7,11 +7,16 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\ReserveRequest;
 use App\Policies\ReservePolicy;
+use App\Services\ReserveService;
 
 class ReserveController extends Controller {
     
+    public function __construct( protected ReserveService $reserveService ){}
+
     public function reserveTable( ReserveRequest $request ) {
 
-        $request->validated();
+        $validated = $request->validated();
+
+        $this->reserveService->reserve( $validated );
     }
 }
