@@ -16,13 +16,13 @@ use App\Models\User;
 //User
 Route::post( "/register", [ UserController::class, "register" ]);
 Route::post( "/login", [ UserController::class, "login" ]);
+Route::get( "/reserves", [ ReserveController::class, "getReserves" ]);
 
 Route::middleware([ "auth:sanctum" ])->group( function() {
     
-    //Route::post( "/reserve", [ ReserveController::class, "reserveTable" ]);
-    Route::post( "/reserve", function( Request $request ){
-        return auth()->user();
-    });
+    //Foglalás
+    Route::get( "/reserve/{reserve}", [ ReserveController::class, "getReserve" ]);
+    Route::post( "/create-reserve", [ ReserveController::class, "reserveTable" ]);
 
     //User
     Route::post( "/logout", [ UserController::class, "logout" ]);

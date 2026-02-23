@@ -1,11 +1,14 @@
 Super:
-CtW0L8nlMrb8scdOSww1ayPY9PjChr8YDTSQIQ6x276508bc
+LlnkMqSi0TFnQUMIBc3OXX6VCANgwHKjjJRpH7RH59ea2684
 
 Admin:
-qmSYQLi04WqQw2S0voqMpqcwNQRhnA4bxJcUnDaY961defa6
+0xjEz0msPvFbDH5lvQdZso9siKHXUKeVOKg73Df4a5fb2ff1
 
 User:
-zwwTn6ZDp3oMyot9eUWoFsQSIzEyv1Wy8KjbnCTCb12affa8
+DRQLvLdPaK1qiWTSUqPxa8AHC6VLse5kCOEXlL00319cd535
+
+Tanar:
+Qor0SHsHpUyOebCuRO54VH2LuZEIpB98l1BSGXqc6eb93459
 
 Alkalmazás jelszó:
 xpwh ukbb ntmu oaxn
